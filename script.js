@@ -13,6 +13,16 @@ function randomHexColor() {
     }
     return hexColor;
 }
+function randRgbColor() {
+    let rgbColor = "rgb(";
+    for(let i=0;i<2;i++) {
+        rgbColor += Math.floor(Math.random()*256).toString();
+        rgbColor += ", ";
+    }
+    rgbColor += Math.floor(Math.random()*256).toString();
+    rgbColor += ")";
+    return rgbColor;
+}
 
 function randomDirection() {
     return `${Math.floor(Math.random() * 360)}deg`;
@@ -20,7 +30,7 @@ function randomDirection() {
 
 function updateGradient() {
     // Change the body background based on color inputs
-    body.style.background = `linear-gradient(${direction}, ${color1.value}, ${color2.value})`;
+    body.style.background = `linear-gradient(${direction}, ${randomRgbColor()}, ${randomRgbColor()})`;
     cssText.textContent = `linear-gradient(${direction}, ${color1.value}, ${color2.value})`;
 }
 
